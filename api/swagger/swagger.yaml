@@ -58,3 +58,121 @@ definitions:
     properties:
       message:
         type: string
+  User:
+    required:
+      - id
+      - first_name
+      - last_name
+      - login
+      - password
+      - mail
+    properties:
+      id:
+        type: integer
+      first_name:
+        type: string
+      last_name:
+        type: string
+      login:
+        type: string
+      password:
+        type: string
+        format: password
+      mail:
+        type: string
+        format: email
+  Admin:
+    allOf:    
+      - $ref: '#/definitions/User'
+    required:
+      - rights
+    properties:
+      rights:
+        type: string
+  Session:
+    required:
+      - id
+      - token
+      - experience_date
+    properties:
+      id:
+        type: integer
+      token:
+        type: string
+      experience_date:
+        type: string
+        format: date-time
+  Gallery:
+    required:
+      - id
+      - title
+      - description
+      - visibility
+    properties:
+      id:
+        type: integer
+      title:
+        type: string
+      description:
+        type: string
+      visibility:
+        type: boolean
+  Picture:
+    required:
+      - id
+      - title
+      - description
+      - date
+      - file_name
+      - path
+      - size
+    properties:
+      id:
+        type: integer
+      title:
+        type: string
+      description:
+        type: string
+      date:
+        type: string
+        format: date-time
+      file_name:
+        type: string
+      path:
+        type: string
+      size:
+        type: integer
+  MinPicture:
+    allOf:    
+      - $ref: '#/definitions/Picture'
+    required:
+      - type
+    properties:
+      type:
+        type: string
+  Tag:
+    required:
+      - id
+      - text
+    properties:
+      id:
+        type: integer
+      text:
+        type: string
+  Comment:
+    required:
+      - id
+      - text
+      - date
+    properties:
+      id:
+        type: integer
+      text:
+        type: string
+      date:
+        type: string
+        format: date-time
+        
+    
+    
+  
