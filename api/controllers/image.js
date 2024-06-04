@@ -52,13 +52,14 @@ function listImages(req, res, next) {
 }
 function createImage(req, res, next) {
     images.push(req.body);
+    res.status(200);
     res.json(req.body);
 }
 function readImage(req, res, next) {
     var id = req.swagger.params.id.value;
     var image = findImage(id);
     if (!image) {
-        res.status(404).json();
+        res.status(404).json({ "message": "Image not found" });
     }
     else {
         res.status(200);
@@ -70,7 +71,7 @@ function updateImage(req, res, next) {
     var imageOld = findImage(id);
     var imageNew = req.body;
     if (!imageOld) {
-        res.status(404).json();
+        res.status(404).json({ "message": "Image not found" });
     } else {
         res.status(200);
         Object.assign(imageOld, imageNew);
@@ -82,7 +83,7 @@ function deleteImage(req, res, next) {
     var id = req.swagger.params.id.value;
     var image = findImage(id);
     if (!image) {
-        res.status(404).json();
+        res.status(404).json({ "message": "Image not found" });
     } else {
         res.status(200);
         var index = images.indexOf(image);
