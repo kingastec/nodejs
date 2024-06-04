@@ -44,17 +44,17 @@ paths:
           description: Error
           schema:
             $ref: "#/definitions/ErrorResponse"
-  /:
-    x-swagger-router-controller: homepage
-    get:
-      operationId: homepage
-      produces:
-        - text/html; charset=utf-8
-      responses:
-        200:
-          description: Success
-          schema:
-            type: string
+  # /:
+  #   x-swagger-router-controller: homepage
+  #   get:
+  #     operationId: homepage
+  #     produces:
+  #       - text/html; charset=utf-8
+  #     responses:
+  #       200:
+  #         description: Success
+  #         schema:
+  #           type: string
   /image:
     x-swagger-router-controller: image
     get:
